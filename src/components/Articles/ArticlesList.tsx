@@ -20,7 +20,6 @@ export const ArticlesList = () => {
   const data = useAppSelector(selectArticles)
   const location = useLocation()
   const searchValue = useAppSelector(selectSearchValue)
-  console.log('searchValue', searchValue)
   const convertData = (data: string) => {
     const date = new Date(data)
     const dateString = date.toLocaleDateString('en-US', {
@@ -42,7 +41,6 @@ export const ArticlesList = () => {
     }
     return result
   })
-  console.log('filteredByTitle', filteredByTitle)
   const filteredByText = data.filter((el) => {
     let result
     for (let word of searchValue) {
@@ -61,7 +59,6 @@ export const ArticlesList = () => {
     }
   )
   const dataToShow = searchValue[0] === '' ? data : filteredData
-  console.log('dataToShow', dataToShow)
 
   return (
     <Grid container gap={6} sx={{ flexGrow: 1, mt: 3 }}>
